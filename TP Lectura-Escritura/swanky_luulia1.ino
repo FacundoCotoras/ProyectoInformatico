@@ -14,7 +14,7 @@
 
 bool prendido = true;
 
-bool estadoAnterior = HIGH;
+bool estadoAnterior;
 
 bool estadoLed = true;
 
@@ -22,6 +22,8 @@ int VEL = 0;
 
 void setup()
 {
+  attachInterrupt( digitalPinToInterrupt(2) , BotonEX , FALLING );
+
   pinMode(buzz, OUTPUT);
 
   pinMode(rojo, OUTPUT);
@@ -119,4 +121,17 @@ void loop()
       estadoLed = true;
     }
   }
+}
+void BotonEX()
+{
+  bool estadoBoton = digitalRead(boton);
+
+  if (estadoBoton == LOW && estadoAnterior == HIGH)
+  {
+    prendido = !prendido;
+
+    delay(200);
+  }
+
+  estadoAnterior = estadoBoton;
 }

@@ -1,7 +1,7 @@
 const int TEMPO = 120;
 const int BUZZER = 8;
 
-// Canal 1
+// Canal 2
 const int notas[] = {
 131,165,196,165,131,165,196,165,
 156,196,233,277,233,185,156,
